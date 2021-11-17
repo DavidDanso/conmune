@@ -1,0 +1,852 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+html, body {
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--bg-color);
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#main {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+#main.loaded {
+  opacity: 1;
+}
+a:hover {
+    text-decoration: none;
+    /*background: url(../../fonts/Montserrat-Medium.ttf)*/
+}
+.line {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+.line div {
+  visibility: hidden;
+}
+/* Fonts */
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Montserrat-Medium';
+	src: url('../../fonts/Montserrat-Medium.ttf')
+}
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Montserrat-Light';
+	src: url('../../fonts/Montserrat-Light.ttf')
+}
+.conmune-1 {
+    --bg-color: #fff;
+    --text-color: #383838;
+    --paragraph-color: #8e8e98;
+    --main-color: #2943E2;
+    --secondary-color: #F0F3FF;
+    --tertiary-color: #88E663;
+    --main-font: 'Montserrat-Medium';
+    --text-font: 'Montserrat-Light';
+}
+.cursor {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transform-origin: 100% 100%;
+  mix-blend-mode: exclusion;
+  z-index: 99;
+}
+.link-grow {
+  background: white;
+}
+/*********************************** Barba Animation *****************************************/
+.loading-screen {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    background: var(--main-color);
+    width: 0%;
+    height: 100%;
+}
+
+.load-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+/****************************************** NAVIGATION ************************************/
+#mainNav {
+    transform: translateY(0);
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: transparent;
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 9;
+}
+.navbar-brand img {
+    width: 60px;
+}
+.navbar-toggler {
+  position: absolute;
+  width: 40px;
+  top: 20px;
+  right: 30px;
+  padding: 5px;
+  cursor: pointer;
+  border: 0;
+  z-index: 1;
+}
+.navbar-toggler span {
+  display: block;
+  background: var(--main-color);
+  width: 30px;
+  height: 1px;
+  transition: 300ms linear all;
+}
+.navbar-toggler span:nth-child(1) {
+  width: 20px;
+  margin-left: 20px;
+}
+.navbar-toggler span:nth-child(2) {
+  width: 20px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.navbar-toggler span:nth-child(3) {
+  width: 20px;
+}
+.navbar-toggler:hover span:nth-child(1) {
+  width: 32px;
+  margin-left: 0%;
+}
+.navbar-toggler:hover span:nth-child(2) {
+  width: 32px;
+}
+.navbar-toggler:hover span:nth-child(3) {
+  width: 32px;
+  margin-left: 0%;
+}
+.navbar-brand {
+    margin-right: 0;
+}
+.nav-item a {
+    padding: 7px 17px !important;
+    font-size: 15px;
+    color: #9194a8;
+    letter-spacing: 1px;
+    font-family: var(--text-font);
+}
+#gradient:hover {
+    background: linear-gradient(#2943E2, #4557f6,#b5a8dd,#12151f);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.nav-item a span {
+    color: var(--text-color);
+    font-weight: bold;
+}
+#lock {
+    width: 3%;
+    margin-top: -1%;
+}
+#login {
+    vertical-align: middle;
+}
+.nav-item #access {
+    padding: 7px 25px !important;
+    font-size: 15px;
+    background: var(--main-color);
+    color: #fff;
+    transition: all 0.8s ease;
+    margin-bottom: 3%;
+}
+.nav-item #access:hover {
+    transition: all 0.8s ease;
+    mix-blend-mode: normal;
+    color: var(--bg-color);
+    background: #4557f6;
+    box-shadow: 0 10px 10px -10px rgba(0,0,0,0.35);
+}
+    #mainNav.navbar-shrink {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        /*background-color: #fff;*/
+    }
+
+#mainNav.navbar-shrink {
+  position: fixed;
+  background: var(--bg-color);
+  animation-name: animationFade;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  box-shadow: -1px 9px 40px -30px rgba(0,0,0,0.35);
+  width: 100%;
+}
+@keyframes animationFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+  }
+}
+/***************************************** Hero_Section **************************************/
+#hero {
+    background: #EFF0F2;
+}
+.hero-intro h1 {
+    font-size: 5.5vh;
+    color: var(--main-color);
+    font-family: var(--main-font);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-top: 35%;
+    margin-left: 6%;
+}
+#big_dollar {
+    width: 10%;
+    position: absolute;
+    top: 35%;
+    margin-left: 6%;
+}
+#small_dollar {
+    position: absolute;
+    top: 15%;
+    width: 10%;
+    margin-left: 75%;
+}
+.hero-intro #mob_img {
+    margin-top: -16.5%;
+    margin-left: -10%;
+    width: 100vh;
+}
+/************************************************** Info-Section ******************************************/
+#info {
+    background: var(--main-color);
+}
+.info-intro h1 {
+    color: var(--bg-color);
+    font-family: var(--main-font);
+    font-size: 4vh;
+    letter-spacing: 1px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.info-intro p {
+    color: var(--bg-color);
+    font-family: var(--text-font);
+    font-size: 2.2vh;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 5%;
+}
+/************************************************** Price-mobile-Section ******************************************/
+#price-mobile {
+    margin-top: 10%;
+}
+.price_mobile-intro {
+    margin: 2%;
+}
+.price_mobile-intro h1 {
+    color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: 4.5vh;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.price_mobile-intro h6 {
+    color: var(--text-color) !important;
+    font-family: var(--text-font);
+    font-size: 2.7vh;
+    letter-spacing: 1px;
+    margin-top: 3%;
+    margin-bottom: 10%;
+}
+.price_mobile-intro #icon {
+    width: 6%;
+}
+.price_mobile-intro p {
+    color: var(--text-color);
+    font-family: var(--text-font);
+    font-size: 2.2vh;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 4%;
+    vertical-align: middle;
+}
+#price-mobile #price-line {
+    margin-top: 15%;
+    margin-bottom: 15%;
+    background: var(--main-color);
+}
+#price-mobile #intro2 h5 {
+    color: var(--main-color);
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+#price-mobile button {
+    color: var(--bg-color);
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    margin-top: 5%;
+    background: var(--main-color);
+    transition: all 0.8s ease;
+}
+#price-mobile #S_img {
+    width: 8%;
+}
+
+#price-mobile .modal h1 {
+    color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: 5vh;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-top: 8%;
+}
+#price-mobile .modal h2 {
+    color: var(--main-color);
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-top: 4%;
+    margin-bottom: 6%;
+}
+#price-mobile .modal h4 {
+    color: var(--main-color);
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-top: 4%;
+    margin-bottom: 10%;
+}
+#price-mobile .modal h5 {
+    color: var(--text-color) !important;
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-top: 4%;
+    margin-bottom: 15% !important;
+}
+#modal_form input {
+    border-radius: 10px;
+}
+#modal_form ::placeholder {
+    color: var(--paragraph-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+}
+#modal_form select {
+    color: var(--paragraph-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+#modal_form textarea {
+    border-radius: 10px;
+}
+#modal_form h3 {
+    color: #555469;
+    font-family: var(--main-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    margin-top: 6%;
+}
+#modal_form button {
+    color: var(--bg-color);
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    padding: 7px 30px !important;
+    letter-spacing: 1px;
+    margin-top: 5%;
+    background: var(--main-color);
+    transition: all 0.8s ease;
+}
+#price-mobile .modal-footer a {
+    color: var(--text-color) !important;
+    font-family: var(--text-font);
+    padding: 7px 25px !important;
+    letter-spacing: 1px;
+    font-size: 2.2vh;
+    border: 1px solid var(--main-color);
+    background: transparent;
+}
+/************************************************** Price_Info ******************************************/
+#price_info {
+    margin-top: 5%;
+}
+.price_info-intro {
+    margin: 2%;
+}
+.price_info-intro h1 {
+    color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: 5vh;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.price_info-intro h6 {
+    color: var(--text-color) !important;
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+}
+.price_info-intro h5 {
+    color: var(--main-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+    margin-bottom: 6%;
+}
+.price_info-intro #icon {
+    width: 5%;
+}
+.price_info-intro p {
+    color: var(--text-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    vertical-align: middle;
+}
+
+.price_info-intro input {
+    border-radius: 10px;
+}
+.price_info-intro ::placeholder {
+    color: var(--paragraph-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+}
+.price_info-intro select {
+    color: var(--paragraph-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+.price_info-intro textarea {
+    border-radius: 10px;
+}
+.price_info-intro h3 {
+    color: #555469;
+    font-family: var(--main-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    margin-top: 6%;
+}
+.price_info-intro button {
+    color: var(--bg-color);
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    margin-top: 5%;
+    background: var(--main-color);
+    transition: all 0.8s ease;
+}
+.price_info-intro button:hover {
+    transform: translateY(-12px);
+    transition: all 0.8s ease;
+    mix-blend-mode: normal;
+    color: var(--bg-color);
+    background: #4557f6;
+}
+/************************************************** Message-Section ******************************************/
+#msg {
+    margin-top: 15%;
+    margin-bottom: 8%;
+}
+.msg-intro {
+    margin: 2%;
+}
+.msg-intro h1 a {
+    background: linear-gradient(#2943E2, #2943E2,#b5a8dd,#2943E2);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: var(--text-font);
+}
+.msg-intro h1 {
+    background: linear-gradient(#2943E2, #2943E2,#b5a8dd,#2943E2);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: var(--text-font);
+    font-size: 2.5vh;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin-top: 6%;
+}
+.msg-intro h1 a span {
+    background: linear-gradient(#2943E2, #2943E2,#2943E2,#12151f);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    border-bottom: 1px solid var(--main-color);
+}
+/************************************************** Footer-Section ******************************************/
+#footer {
+    margin-top: 8%;
+    background: var(--secondary-color);
+    padding-top: 15%;
+}
+.footer-intro {
+    margin: 3%;
+}
+.footer-intro #footer_logo {
+    width: 60%;
+    margin-left: 37%;
+    margin-bottom: 16%;
+}
+.footer-intro li {
+    list-style: none;
+    margin-left: 2%;
+    font-size: 2.2vh;
+    color: #9194a8;
+    font-family: var(--text-font);
+    letter-spacing: 1px;
+    margin-bottom: 2%;
+}
+#active_link span {
+    color: var(--text-color);
+}
+.footer-intro p {
+    font-size: 2.3vh;
+    color: var(--text-color);
+    font-family: var(--text-font);
+    letter-spacing: 1px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    line-height: 1.5;
+}
+.footer-intro #phone {
+    width: 60%;
+    margin-top: 5%;
+    margin-left: 5%;
+    animation: circle1 15s linear infinite;
+}
+@keyframes circle1 {
+    from {
+        transform: rotate(0deg)
+            translate(-30px)
+            rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg)
+            translate(-30px)
+            rotate(-360deg);
+    }
+}
+
+/*************************************************** Footer *************************************/
+footer {
+    margin-top: 1%;
+}
+footer p {
+    text-align: center;
+    font-size: 1.8vh;
+    color: var(--text-color);
+    font-family: var(--text-font);
+    letter-spacing: 1px;
+}
+/********************** Extra small devices (portrait phones, less than 576px) ****************************/
+@media (max-width: 575.98px) { 
+#mainNav {
+    background: #EFF0F2;
+}
+.nav-item a {
+    margin-left: -4%;
+}
+.nav-item #access {
+    margin-left: -1%;
+    width: 50%;
+}
+.cursor {
+    display: none;
+}
+#price {
+    display: none;
+}
+.msg-intro h1 a {
+    font-size: 2.3vh;
+}
+}
+/************************ Small devices (landscape phones, 576px and up) *****************************/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+      
+}
+
+/***************************** Medium devices (tablets, 768px and up) ********************************/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+}
+
+/********************************** Large devices (desktops, 992px and up) *********************************/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+}
+
+/************************ Extra large devices (large desktops, 1200px and up) ********************************/
+@media (min-width: 1200px) {
+#mainNav {
+    margin-left: 2.5%;
+    margin-right: 3%;
+}
+#mainNav.navbar-shrink {
+  padding-left: 2.5%;
+  margin-left: 0%;
+  padding-right: 5% !important;
+}
+#lock {
+    width: 12%;
+    margin-top: -5%;
+}
+.nav-item #access {
+    margin-bottom: 0%;
+}
+#hero {
+    margin-top: -10%;
+}
+.hero-intro h1 {
+    font-size: 10.5vh;
+    margin-top: 50%;
+    margin-left: 0%;
+}
+#big_dollar {
+    width: 15%;
+    top: 45%;
+    margin-left: 12%;
+}
+#small_dollar {
+    top: 38%;
+    width: 10%;
+    margin-left: 90%;
+}   
+.hero-intro #mob_img {
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 170vh;
+}
+.info-intro h1 {
+    font-size: 4.5vh;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.info-intro p {
+    font-size: 2.2vh;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.info-intro p span {
+    display: block;
+}
+#price-mobile {
+    display: none;
+}
+#price {
+    margin-top: 3%;
+}
+#price .icons .border_line {
+    border-top: 1px solid #1c1c1e;
+    border-bottom: 1px solid #1c1c1e;
+}
+#price .icons #bg_color {
+    border-right: 1px solid #1c1c1e;
+    border-left: 1px solid #1c1c1e;
+}
+#price .icons #bg_colorr {
+    border-left: 1px solid #1c1c1e;
+}
+#price h2 {
+    color: #000;
+    font-family: var(--text-font);
+    font-size: 3.5vh;
+    letter-spacing: 1px;
+    padding-top: 4%;
+}
+#price h6 {
+    color: var(--paragraph-color);
+    font-family: var(--text-font);
+    font-size: 2vh;
+    letter-spacing: 1px;
+    margin-top: 2%;
+}
+#price .icons {
+    position: relative;
+}
+#price .icons #iconBox {
+    position: relative;
+    transition: 0.5s;
+}
+#price .content .contentBox {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    transform: scale(0);
+    opacity: 0;
+}
+#price .content .contentBox.active {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+#price .col-md-6:hover {
+    transition: 0.4s;
+}
+#price .col-md-6:hover h2 {
+    color: var(--main-color);
+    transition: 0.4s;
+}
+#price .col-md-6:hover h6 {
+    color: var(--text-color);
+    transition: 0.4s;
+}
+.iconBox.active {
+    background: #1c1c1e;
+    margin-bottom: -8vh !important;
+}
+.iconBox.active h2 {
+    color: var(--bg-color) !important;
+    opacity: 1;
+}
+.iconBox.active h6 {
+    color: var(--paragraph-color) !important;
+    opacity: 1;
+    padding-bottom: 1.3%;
+}
+#last_price {
+    background: #E6E8F0;
+}
+#last_price h2 {
+    color: var(--main-color);
+    font-family: var(--text-font);
+    font-size: 3.5vh;
+    letter-spacing: 1px;
+    padding-top: 4%;
+}
+#basic_space {
+    margin-top: 8%;
+}
+#lincensing_space {
+    margin-top: -112%;
+}
+.price_info-intro {
+    margin: 5%;
+}
+.price_info-intro h1 {
+    font-size: 6.5vh;
+    margin-top: 0%;
+}
+.price_info-intro h6 {
+    font-size: 3vh !important;
+    letter-spacing: 1px;
+    margin-bottom: 6%;
+}
+.price_info-intro h5 {
+    font-size: 2.5vh !important;
+    letter-spacing: 1px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+.price_info-intro #icon {
+    width: 6%;
+}
+.price_info-intro #S_img {
+    width: 8%;
+}
+#msg {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.msg-intro h1 {
+    font-size: 5.5vh;
+    margin-top: 4%;
+}
+#footer {
+    margin-top: 0%;
+    padding-top: 5%;
+}
+#text_footer {
+    margin-left: -5%;
+}
+.footer-intro #footer_logo {
+    width: 25%;
+    margin-left: 67%;
+    margin-bottom: 15%;
+}
+.footer-intro li {
+    margin-left: 5%;
+    font-size: 2.1vh;
+    display: inline-block;
+}
+.footer-intro p {
+    font-size: 2.3vh;
+    margin-top: 3%;
+    margin-bottom: 0%;
+    margin-left: 5%;
+}
+.footer-intro #phone {
+    width: 60%;
+    margin-top: 25%;
+    margin-left: 5%;
+}
+footer {
+    margin-top: -2%;
+}
+footer p {
+    font-size: 2vh;
+}
+}
+
+/************************ Extra large devices (large desktops, 1900px and up) ********************************/
+@media (min-width: 1900px) {
+.info-intro h1 {
+    font-size: 4vh;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: -15%;
+}
+.info-intro p {
+    font-size: 2.2vh;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+#lincensing_space {
+    margin-top: -116%;
+}
+}
