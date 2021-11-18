@@ -17,6 +17,7 @@
 `JAVASCRIPT`
 `HTML`
 `CSS`
+`BOOTSTRAP`
 
 
 ## Project Images
