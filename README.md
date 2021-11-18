@@ -22,7 +22,7 @@
 ## Project Images
 
 #### `Main Screen`
-<img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/home.png" width=500 />
+<img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/home.png" width=500 /> <img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/features.png" width=500 />
 
 #### `Features Screen`
 <img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/features.png" width=500 />
