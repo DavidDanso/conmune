@@ -10,6 +10,14 @@
 
 ### Conmune is an affordable way to send messages and interact with your clients seamlessly.
 
+## Frameworks & Tools Used
+`Adobe XD`
+`GSAP`
+`JQUERY`
+`JAVASCRIPT`
+`HTML`
+`CSS`
+
 
 ## Project Images
 
