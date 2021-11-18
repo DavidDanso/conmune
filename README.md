@@ -21,14 +21,8 @@
 
 ## Project Images
 
-#### `Main Screen`
+#### `Main Screen & Features Screen`
 <img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/home.png" width=500 /> <img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/features.png" width=500 />
 
-#### `Features Screen`
-<img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/features.png" width=500 />
-
-#### `Price Screen`
-<img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/price.png" width=500 />
-
-#### `Login Screen`
-<img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/login.png" width=500 />
+#### `Price Screen & Login Screen`
+<img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/price.png" width=500 /> <img src="https://github.com/DavidDanso/conmune/blob/master/assets/snapshoots/login.png" width=500 />
